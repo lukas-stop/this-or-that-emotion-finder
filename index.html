@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This or That Emotions</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script type="module" src='./index.js'></script>
+    <style>
+        .emotionButton {
+            border: none;
+            padding: 20px 40px;
+            margin: 10px;
+            font-size: 36px;
+            text-align: center;
+            width: 250px;
+            background-color: #eeeeee;
+        }
+
+        .emotionButton:hover {
+            background-color: #cccccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>This or That Emotion Finder</h1>
+    <p>This is a tool to help you put a name to your emotions. This app is kept to as much grayscale as possible to help
+        you focus on your own feelings.</p>
+
+    <div>
+        <p>Select the emotion that resonates with you the most. You will always have the option to go back an emotion,
+            if neither of the current ones being displayed feel right.</p>
+        <p>Current selection:
+        <p id="placeholderSelection"></p>
+        </p>
+        <button class="emotionButton" id="firstEmotionBtn"></button>
+        <button class="emotionButton" id="secondEmotionBtn"></button>
+        <!-- <button>go back</button> -->
+    </div>
+</body>
+
+</html>
