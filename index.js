@@ -202,13 +202,6 @@ const dummyData = {
     ]
 }
 
-/* testing with accessing data */
-
-// for (var emotion in dummyData.emotions) {
-//     //one layer deep
-//     console.log(dummyData.emotions[emotion]);
-// }
-
 /* ---------------------------------------------------------- */
 /* initializing buttons & variables*/
 /* ---------------------------------------------------------- */
@@ -216,17 +209,20 @@ let unusedEmotions = dummyData.emotions;
 let storedEmotion = '';
 let usedEmotions = []
 
+//setting up divs
+let emotionSelectorDiv = document.getElementById("emotionSelector");
+let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
+foundEmotionDisplayDiv.innerHTML = ""; //hides from view
+
+//button setup
 let firstEmotion = document.getElementById('firstEmotionBtn');
 firstEmotion.textContent = unusedEmotions[0];
 
 let secondEmotion = document.getElementById('secondEmotionBtn');
 secondEmotion.textContent = unusedEmotions[1];
 
-let placeHolder = document.getElementById('placeholderSelection');
-
 //anything that has already been displayed to the user goes into usedEmotions
 usedEmotions = unusedEmotions.splice(0, 2);
-console.log("Used emotions: " + usedEmotions)
 
 /* ---------------------------------------------------------- */
 /* event handlers & function declaration */
@@ -234,15 +230,19 @@ console.log("Used emotions: " + usedEmotions)
 
 // both buttons will do the same thing, the second button's text gets placed in the first button upon selection.
 firstEmotion.addEventListener('click', function () {
-    //alert(this.textContent)
-    selectEmotion(this) //TO DO: pass both emotions through ??
+    selectEmotion(this)
 })
 
 secondEmotion.addEventListener('click', function () {
-    //this needs some kind of flag to show it's the second option
-    //alert(this.textContent)
     selectEmotion(this)
 })
+
+
+/* swaps out the display and removes the buttons so that the user only sees the final emotion */
+function displayFoundEmotion(emotion) {
+    emotionSelectorDiv.innerHTML = "";
+    emotionSelectorDiv.innerHTML = '<p>Your emotion is <span style="font-weight: bold;" id="selectedEmotion">' + emotion + '</span>!</p>';
+}
 
 /*
     record the emotion that was selected and display the next set of relevant emotions.
@@ -250,11 +250,19 @@ secondEmotion.addEventListener('click', function () {
 function selectEmotion(emotion) {
     // store the current emotion + replace first button with it
     storedEmotion = emotion.textContent;
-    //console.log("User selected: " + storedEmotion);
     firstEmotion.innerHTML = storedEmotion;
-    placeHolder.innerHTML = storedEmotion;
 
-    //update used emotions list to no longer include the selected emotion.  if emotion list empty then display "you found the emotion you be feelin" or somethin like that
+    //update used emotions list to no longer include the selected emotion
     usedEmotions = unusedEmotions.shift();
+
+    //are there emotions left in the list?  If no show the final emotion
+    if (unusedEmotions.length === 0) {
+        displayFoundEmotion(storedEmotion)
+        //console.log("Your emotion is " + storedEmotion) //debug
+        return 0;
+    }
+
     secondEmotion.textContent = unusedEmotions[0];
+    // console.log("Emotions left: " + unusedEmotions) //debug
 }
+

@@ -31,11 +31,15 @@
     <div>
         <p>Select the emotion that resonates with you the most. You will always have the option to go back an emotion,
             if neither of the current ones being displayed feel right.</p>
-        <p>Current selection:
-        <p id="placeholderSelection"></p>
-        </p>
-        <button class="emotionButton" id="firstEmotionBtn"></button>
-        <button class="emotionButton" id="secondEmotionBtn"></button>
+
+        <div class="emotionSelector" id="emotionSelector">
+            <button class="emotionButton" id="firstEmotionBtn"></button>
+            <button class="emotionButton" id="secondEmotionBtn"></button>
+        </div>
+        <div class="foundEmotionDisplay" id="foundEmotionDisplay">
+            <p>Your emotion is <span style="font-weight: bold;" id="selectedEmotion"></span>!</p>
+        </div>
+
         <!-- <button>go back</button> -->
     </div>
 </body>
