@@ -198,7 +198,13 @@
 
 const dummyData = {
     "emotions": [
-        "Happy", "Surprised", "Bad", "Fearful", "Angry", "Disgusted", "Sad"
+        { "Happy": [] },
+        { "Surprised": [] },
+        { "Bad": [] },
+        { "Fearful": [] },
+        { "Angry": [] },
+        { "Disgusted": [] },
+        { "Sad": [] }
     ]
 }
 
@@ -207,62 +213,135 @@ const dummyData = {
 /* ---------------------------------------------------------- */
 let unusedEmotions = dummyData.emotions;
 let storedEmotion = '';
-let usedEmotions = []
+let currentEmotions = [];
+let previousEmotions = [];
+let notTheVibeEmotions = [];
 
 //setting up divs
 let emotionSelectorDiv = document.getElementById("emotionSelector");
 let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
 foundEmotionDisplayDiv.innerHTML = ""; //hides from view
 
-//button setup
+//button setup - Happy & surprised are default emotions
 let firstEmotion = document.getElementById('firstEmotionBtn');
-firstEmotion.textContent = unusedEmotions[0];
+console.log(objArray.map(dummyData.emotions => dummyData.emotions.foo))
+// currentEmotions.push(dummyData.emotions[0])
+// firstEmotion.innerHTML = dummyData.emotions[0].values(unusedEmotions);
+
 
 let secondEmotion = document.getElementById('secondEmotionBtn');
-secondEmotion.textContent = unusedEmotions[1];
+// secondEmotion.textContent = dummyData.emotion["Surprised"];
 
-//anything that has already been displayed to the user goes into usedEmotions
-usedEmotions = unusedEmotions.splice(0, 2);
+// currentEmotions.push(unusedEmotions[0])
+// currentEmotions.push(unusedEmotions[1])
+// console.log("Current emotions: " + currentEmotions) //debug
+// console.log("Previous emotions: " + previousEmotions)
 
-/* ---------------------------------------------------------- */
-/* event handlers & function declaration */
-/* ---------------------------------------------------------- */
+// //anything that has already been displayed to the user goes into usedEmotions
+// unusedEmotions.splice(0, 2);
+// // console.log("Unused emotions: " + unusedEmotions)
 
-// both buttons will do the same thing, the second button's text gets placed in the first button upon selection.
-firstEmotion.addEventListener('click', function () {
-    selectEmotion(this)
-})
+// const goBackBtn = document.getElementById("goBackBtn");
+// goBackBtn.disabled = true;
 
-secondEmotion.addEventListener('click', function () {
-    selectEmotion(this)
-})
+// /* ---------------------------------------------------------- */
+// /* event handlers & function declaration */
+// /* ---------------------------------------------------------- */
+
+// // both buttons will do the same thing, the second button's text gets placed in the first button upon selection.
+// firstEmotion.addEventListener('click', function () {
+//     selectEmotion(this)
+// })
+
+// secondEmotion.addEventListener('click', function () {
+//     selectEmotion(this)
+// })
+// goBackBtn.addEventListener('click', function () {
+//     pleaseGodGoBack();
+// })
+
+// /*
+//     return to the previous two emotions that were displayed.  If back at initial emotions, disable the button again.
+// */
+
+// function pleaseGodGoBack() {
+//     const defaultEmotions = ["Happy", "Surprised"] //these are the initial ones you always start with
+//     if (currentEmotions === defaultEmotions) {
+//         goBackBtn.disabled = true;
+//     }
+//     //figure out what emotion what removed and add it back into the right place
+//     //if the first emotion was removed, add it back to the first spot
+//     console.log("before updating")
+//     console.log("previous: " + previousEmotions);
+//     console.log("current: " + currentEmotions);
+//     console.log("unused: " + unusedEmotions)
+
+//     // currentEmotions = previousEmotions;
+//     // firstEmotion.innerHTML = previousEmotions[0];
+//     // secondEmotion.innerHTML = previousEmotions[1];
+
+//     console.log("after updating")
+// }
 
 
-/* swaps out the display and removes the buttons so that the user only sees the final emotion */
-function displayFoundEmotion(emotion) {
-    emotionSelectorDiv.innerHTML = "";
-    emotionSelectorDiv.innerHTML = '<p>Your emotion is <span style="font-weight: bold;" id="selectedEmotion">' + emotion + '</span>!</p>';
-}
+// /* swaps out the display and removes the buttons so that the user only sees the final emotion */
+// function displayFoundEmotion(emotion) {
+//     emotionSelectorDiv.innerHTML = "";
+//     emotionSelectorDiv.innerHTML = '<p class="finalEmotion">Your emotion is <span style="font-weight: bold;" id="selectedEmotion">' + emotion + '</span>!</p>';
+// }
 
-/*
-    record the emotion that was selected and display the next set of relevant emotions.
-*/
-function selectEmotion(emotion) {
-    // store the current emotion + replace first button with it
-    storedEmotion = emotion.textContent;
-    firstEmotion.innerHTML = storedEmotion;
+// /*
+//     record the emotion that was selected and display the next set of relevant emotions.
+// */
+// function selectEmotion(emotion) {
+//     goBackBtn.disabled = false;
 
-    //update used emotions list to no longer include the selected emotion
-    usedEmotions = unusedEmotions.shift();
+//     console.log("--------------------------")
+//     //store the currently displayed emotions
+//     previousEmotions = []
+//     previousEmotions.push(firstEmotion.innerHTML)
+//     previousEmotions.push(secondEmotion.innerHTML)
+//     console.log('previous emotions: ' + previousEmotions)
 
-    //are there emotions left in the list?  If no show the final emotion
-    if (unusedEmotions.length === 0) {
-        displayFoundEmotion(storedEmotion)
-        //console.log("Your emotion is " + storedEmotion) //debug
-        return 0;
-    }
+//     //update the emotions so that the selected emotion is kept but the non-selected emotion is removed
 
-    secondEmotion.textContent = unusedEmotions[0];
-    // console.log("Emotions left: " + unusedEmotions) //debug
-}
+//     let tisTheFeel = emotion
+//     currentEmotions.splice(currentEmotions.indexOf(emotion), 1)
+//     let notThevibe = currentEmotions
+
+//     //store the remove emotion's index in the original array AND its value (in case we need to go back and put it in!)
+
+//     let notTheVibeIndex = dummyData.emotions.findIndex(item => item === notThevibe)
+//     notTheVibeEmotions.push([notTheVibeIndex, notThevibe])
+//     console.log("sorted in not the vibes: " + notTheVibeEmotions)
+
+
+
+//     // // // store the current emotion + replace first button with it
+//     // // previousEmotions.push(firstEmotion.innerHTML)
+//     // // previousEmotions.push(secondEmotion.innerHTML)
+//     // // console.log('previous emotions: ' + previousEmotions)
+
+//     // storedEmotion = emotion.textContent;
+//     // firstEmotion.innerHTML = storedEmotion;
+
+//     // //update used emotions list to no longer include the selected emotion
+//     // //TO DO: fix this to actually remove specific emotions from the list
+//     // currentEmotions.forEach((i) => {
+//     //     const unusedIndex = unusedEmotions.indexOf(i);
+//     //     if (unusedIndex > -1) {
+//     //         unusedEmotions.splice(unusedIndex, 1);
+//     //     }
+//     // })
+
+//     // //are there emotions left in the list?  If no show the final emotion
+//     // if (unusedEmotions.length === 0) {
+//     //     displayFoundEmotion(storedEmotion)
+//     //     return 0;
+//     // }
+
+//     // secondEmotion.textContent = unusedEmotions[0];
+//     // currentEmotions.push(firstEmotion.innerHTML)
+//     // currentEmotions.push(secondEmotion.innerHTML)
+// }
 
