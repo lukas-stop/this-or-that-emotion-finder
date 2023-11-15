@@ -16,5 +16,4 @@
 
 
 ## CURRENT PROGRESS/TODO LIST
-- need to continue to cycle through emotions until you hit the final selection/last emotion in the list (it can get the data, it just isn't displaying it right)
 - need to have a backup in case there are issues passing data through (fallback -> display selected emotion as the final emotion) - create the final emotion display function
