@@ -17,7 +17,8 @@ let emotionSelectorDiv = document.getElementById("emotionSelector");
 let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
 let initialEmotions = [];
 let subEmotions = [];
-let currentEmotions = [];
+let displayedEmotions = [];
+let currentEmotionIndex = 0;
 
 dummyData.emotions.forEach((obj) => {
     initialEmotions.push(Object.keys(obj)[0]);
@@ -31,19 +32,24 @@ dummyData.emotions.forEach((obj) => {
     this also serves as a full reset for the div
 */
 function makeDefaultButtons() {
+    //reset everything
+    subEmotions = [];
+    displayedEmotions = [];
+    currentEmotionIndex = 0;
     emotionSelectorDiv.innerHTML = "";
     foundEmotionDisplayDiv.innerHTML = "";
 
-    //initializing
+    //initialize
     let i = 1;
     initialEmotions.forEach((emotion) => {
-        emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" id="EmotionBtn' + i + '" value="' + emotion + '">' + emotion + '</button>'
+        emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" value="' + emotion + '">' + emotion + '</button>'
         i++;
     })
 
     foundEmotionDisplayDiv.innerHTML += '<button class="goBackBtn" id="goBackBtn">go back</button>'
     const goBackBtn = document.getElementById("goBackBtn");
     goBackBtn.disabled = true;
+    makeEventListeners();
 }
 makeDefaultButtons();
 
@@ -51,14 +57,17 @@ makeDefaultButtons();
 /* event listeners */
 /* ---------------------------------------------------------- */
 
-// https://stackoverflow.com/questions/51287162/how-to-have-multiple-buttons-of-same-id-value-and-when-click-on-any-button-the-p
-// allows for unique ids for each button
-const emotionButtons = document.getElementsByClassName('jsInitialEmotionButton');
-for (var i = 0; i < emotionButtons.length; i++) {
-    emotionButtons[i].addEventListener("click", function () {
-        goLayerDeeper(this.value);
-    })
+function makeEventListeners() {
+    let emotionButtons = document.getElementsByClassName('jsInitialEmotionButton');
+    for (var i = 0; i < emotionButtons.length; i++) {
+        emotionButtons[i].addEventListener("click", function () {
+            console.log("user selected: " + this.value)
+            goBackBtn.disabled = false;
+            updateButtons(this.value);
+        })
+    }
 }
+
 
 // TO DO: fix so that it accurately fixes the emotions
 goBackBtn.addEventListener("click", function () {
@@ -70,42 +79,68 @@ goBackBtn.addEventListener("click", function () {
 /* ---------------------------------------------------------- */
 
 /* 
-    Given an initial emotion, display the corresponding sub-emotions to the user.
+    Given an initial emotion, find the corresponding sub-emotions
 */
 function goLayerDeeper(selectedEmotion) {
-    console.log("user selected: " + selectedEmotion)
-    goBackBtn.disabled = false;
-
-    //look into the object for the key of given emotion
-    //yoink the keys in that array (or just the array values itself)
+    //look into the object for the key of given emotion & store the relevant sub-emotions
     subEmotions = dummyData.emotions.find(obj => obj[selectedEmotion]);
+    subEmotions = Object.values(subEmotions)[0]; //there's likely a cleaner way of doing this 
+    //console.log("subemotions: " + Object.values(subEmotions)[0]); //debug 
+    //display the sub-emotions to the user
 
-    //display the results
-    //wait to reset cause sometimes the values get fucked??  idk why???
-    emotionSelectorDiv.innerHTML = "";
-
-    currentEmotions.push(Object.values(subEmotions)[0][0])
-    currentEmotions.push(Object.values(subEmotions)[0][1])
-
-    updateButtons();
-    // Object.values(subEmotions)[0].forEach(subEmotion => {
-
-    // });
-
-    console.log(currentEmotions)
-    //console.log(Object.values(subEmotions)[0])
+    console.log("Sub emotions for " + selectedEmotion + " : " + subEmotions)
+    updateButtons(selectedEmotion); //TODO: uncomment after the values get stored properly >:/
 
     //TODO: fallback in case you can't go a layer deeper
+    // let i = 1;
+    // Object.values(subEmotions)[0].forEach(emotion => {
+    //     emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" id="EmotionBtn' + i + '" value="' + emotion + '">' + emotion + '</button>';
+    //     i++;
+    // });
+    //createButtonListeners();
+
+
 }
 
 /*
     Once the user has selected an emotion, update the buttons so that a new emotion is displayed and the unselected emotion is put away.
 */
 
-function updateButtons() {
+function updateButtons(selectedEmotion) {
+    //check if there's any sub-emotions currently
+    if (!subEmotions || !subEmotions.length) {
+        console.log("there's no sub-emotions!!  fetching...")
+        goLayerDeeper(selectedEmotion);
+    }
+    //check if there are still emotions left to display to the user
+    if (currentEmotionIndex > (subEmotions.length + 1 || displayedEmotions[currentEmotionIndex] == undefined)) {
+        //if there isn't any display the result
+        displayFinalEmotion(selectedEmotion);
+        return;
+    }
+
+    //store the current emotion + the next emotion to be displayed in a tuple
+    displayedEmotions.push([selectedEmotion, subEmotions[currentEmotionIndex]]);
+    //console.log("Current emotions: " + displayedEmotions[currentEmotionIndex]); //debug
+
+    //update emotions display
+    emotionSelectorDiv.innerHTML = ""; //wait to reset cause sometimes the values get fucked??  idk why???
     let i = 1;
-    currentEmotions.forEach(emotion => {
-        emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" id="EmotionBtn' + i + '" value="' + emotion + '">' + emotion + '</button>'
+    displayedEmotions[currentEmotionIndex].forEach(emotion => {
+        emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" value="' + emotion + '">' + emotion + '</button>';
         i++;
-    })
+    });
+
+    makeEventListeners();
+    currentEmotionIndex++;
+}
+
+/*
+    display the final emotion to the user
+*/
+
+function displayFinalEmotion(selectedEmotion) {
+    emotionSelectorDiv.innerHTML = ""
+    foundEmotionDisplayDiv.innerHTML = '<p>Your emotion is ' + selectedEmotion + '!</p>' + foundEmotionDisplayDiv.innerHTML;
+    goBackBtn.disabled = false;
 }
