@@ -63,7 +63,13 @@ function makeEventListeners() {
         emotionButtons[i].addEventListener("click", function () {
             console.log("user selected: " + this.value)
             goBackBtn.disabled = false;
-            updateButtons(this.value);
+            if (!subEmotions || !subEmotions.length) {
+                console.log("there's no sub-emotions!!  fetching...")
+                goLayerDeeper(this.value);
+            }
+            else {
+                updateButtons(this.value);
+            }
         })
     }
 }
@@ -108,31 +114,32 @@ function goLayerDeeper(selectedEmotion) {
 
 function updateButtons(selectedEmotion) {
     //check if there's any sub-emotions currently
-    if (!subEmotions || !subEmotions.length) {
-        console.log("there's no sub-emotions!!  fetching...")
-        goLayerDeeper(selectedEmotion);
-    }
+
     //check if there are still emotions left to display to the user
-    if (currentEmotionIndex > (subEmotions.length + 1 || displayedEmotions[currentEmotionIndex] == undefined)) {
+    console.log("subemotions length: " + subEmotions.length);
+    console.log("current index: " + currentEmotionIndex);
+
+    if (currentEmotionIndex >= (subEmotions.length)) {
         //if there isn't any display the result
         displayFinalEmotion(selectedEmotion);
         return;
     }
+    else {
+        //store the current emotion + the next emotion to be displayed in a tuple
+        displayedEmotions.push([selectedEmotion, subEmotions[currentEmotionIndex]]);
+        //console.log("Current emotions: " + displayedEmotions[currentEmotionIndex]); //debug
 
-    //store the current emotion + the next emotion to be displayed in a tuple
-    displayedEmotions.push([selectedEmotion, subEmotions[currentEmotionIndex]]);
-    //console.log("Current emotions: " + displayedEmotions[currentEmotionIndex]); //debug
+        //update emotions display
+        emotionSelectorDiv.innerHTML = ""; //wait to reset cause sometimes the values get fucked??  idk why???
+        let i = 1;
+        displayedEmotions[currentEmotionIndex].forEach(emotion => {
+            emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" value="' + emotion + '">' + emotion + '</button>';
+            i++;
+        });
 
-    //update emotions display
-    emotionSelectorDiv.innerHTML = ""; //wait to reset cause sometimes the values get fucked??  idk why???
-    let i = 1;
-    displayedEmotions[currentEmotionIndex].forEach(emotion => {
-        emotionSelectorDiv.innerHTML += '<button class="initialEmotionButton jsInitialEmotionButton" value="' + emotion + '">' + emotion + '</button>';
-        i++;
-    });
-
-    makeEventListeners();
-    currentEmotionIndex++;
+        makeEventListeners();
+        currentEmotionIndex++;
+    }
 }
 
 /*
