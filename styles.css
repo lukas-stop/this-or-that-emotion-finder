@@ -15,7 +15,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
+h1, h2, h3, h4 {
     font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
 }
 
@@ -57,14 +57,39 @@ a:hover, a:focus-visible {
     height: 150px;
 }
 .mainContent {
-    min-height: 650px;
+    height: 650px;
+    font-size: 16px;
+    overflow-y: scroll;
 }
+.mainContent p {
+    margin-bottom: 20px;
+}
+
+.resourceASAPHelpTxt {
+    color: #901517;
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.wellBeingH3Section {
+    list-style-type: none;
+
+}
+
 
 /* Nav Styling*/
 
-nav li {
+.pageNav li {
     display: inline;
     padding: 0 10px;
+}
+
+.innerNav {
+    margin: 20px auto;
+}
+.innerNav li {    
+    list-style-type: none;
 }
 
 /* Emotion Selector Styling */ 
@@ -80,11 +105,13 @@ nav li {
     border: none;
     padding: 20px 40px;
     margin: 10px;
-    font-size: 36px;
     text-align: center;
     background-color: #eeeeee;
     width: 350px;
-    margin: 5px 5px;
+    margin: 5px 5px;    
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 .initialEmotionButton:hover,
@@ -112,7 +139,7 @@ nav li {
 .goBackBtn {
     border: none;
     padding: 10px 30px;
-    margin: 10px auto;
+    margin: 10px 5px;
     font-size: 16px;
     text-align: center;
     background-color: #eeeeee;
@@ -124,13 +151,32 @@ nav li {
     cursor: pointer;
 }
 
-.finalEmotion {
-    background: #eeeeee;
-    font-size: 36px;
+.finalEmotion {    
     width: 500px;
     padding: 20px;
     margin: auto;
+    font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
 }
+
+/* Resource Page Styling */
+
+.resourceLinksContainer {
+    text-align: left;
+}
+
+.resourceLinksContainer ul {
+    list-style-type: none;
+    margin-left: 30px;
+}
+
+.resourceLinksContainer ul li ul {
+    margin-left: 30px;
+    list-style-type: disc;
+}
+
+
 
 /* Footer styling */
 

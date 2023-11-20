@@ -32,11 +32,15 @@ dummyData.emotions.forEach((obj) => {
 /* ---------------------------------------------------------- */
 
 foundEmotionDisplayDiv.innerHTML = "";
-foundEmotionDisplayDiv.innerHTML += '<button class="goBackBtn" id="goBackBtn">go back</button>'
+foundEmotionDisplayDiv.innerHTML += '<button class="goBackBtn" id="goBackBtn">go back</button><button class="goBackBtn" id="resetBtn">reset</button>'
 const goBackBtn = document.getElementById("goBackBtn");
+const resetBtn = document.getElementById("resetBtn");
 
 goBackBtn.addEventListener("click", function () {
     waitStopGoBackPls();
+})
+resetBtn.addEventListener("click", function () {
+    makeDefaultButtons();
 })
 
 /* ---------------------------------------------------------- */
@@ -54,6 +58,7 @@ function makeDefaultButtons() {
     currentEmotionIndex = 0;
     emotionSelectorDiv.innerHTML = "";
     goBackBtn.disabled = true;
+    resetBtn.disabled = true;
 
     //initialize
     let i = 1;
@@ -75,6 +80,7 @@ function makeEventListeners() {
         emotionButtons[i].addEventListener("click", function () {
             console.log("user selected: " + this.value)
             goBackBtn.disabled = false;
+            resetBtn.disabled = false;
 
             //check if there's any sub-emotions currently
             if (!subEmotions || !subEmotions.length) {
@@ -120,6 +126,7 @@ function waitStopGoBackPls() {
     else {
         //if there's nothing to go back to just do defaults
         goBackBtn.disabled = true;
+        resetBtn.disabled = true;
         makeDefaultButtons();
     }
 }
@@ -176,6 +183,14 @@ function updateButtons(selectedEmotion) {
 
 function displayFinalEmotion(selectedEmotion) {
     emotionSelectorDiv.innerHTML = ""
-    foundEmotionDisplayDiv.innerHTML = '<p>Your emotion is ' + selectedEmotion + '!</p>' + foundEmotionDisplayDiv.innerHTML;
-    goBackBtn.disabled = false;
+    foundEmotionDisplayDiv.innerHTML = "";
+    foundEmotionDisplayDiv.innerHTML += '<p class="finalEmotion">Your emotion is ' + selectedEmotion + '!</p><button class="goBackBtn" id="resetBtn">reset</button>';
+
+    const resetBtn = document.getElementById("resetBtn");
+
+    resetBtn.addEventListener("click", function () {
+        location.reload();
+        //TODO: make a cleaner way of resetting, current method keeps breaking things :(        
+        //makeDefaultButtons();
+    })
 }

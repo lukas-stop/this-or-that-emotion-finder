@@ -4,7 +4,7 @@
 <head>
     <title>This or That Emotion Finder</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script type="module" src='./js/initialButtons.js'></script>
+    <script type="module" src='./js/emotionButtons.js'></script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 
@@ -12,7 +12,7 @@
     <div class="backgroundPattern"></div>
     <div class="bodyDiv headingNav" role="navigation">
         <h1>This or That Emotion Finder</h1>
-        <nav>
+        <nav class="pageNav">
             <ul>
                 <li><a href="./internal pages/about.html">About</a></li>
                 <li><a href="./internal pages/wellbeing-tips.html">Wellbeing Tips</a></li>
@@ -20,18 +20,19 @@
             </ul>
         </nav>
     </div>
-    <div class="bodyDiv mainContent" role="main">
-        <p>
-            This is a tool created to help those with alexithymia to have a less overwhelming <a
-                href="https://positivepsychology.com/emotion-wheel/">
-                emotion wheel</a>!
-            <br><br>
+    <div class="bodyDiv mainContent" role="main" style="overflow: hidden;">
+        <p style="width: 75%; margin: 0 auto 10px auto;"><b>
+                This is a tool created to serve as a less overwhelming <a
+                    href="https://positivepsychology.com/emotion-wheel/">
+                    emotion wheel</a>!
+            </b></p>
         <h2>How to Use:</h2>
-        To use this app, begin by selecting one of the 7 core emotions. Next, pick whether your original
-        selection still fits strongly, or the next relevant
-        emotion fits your emotions better. If you want to change your mind, press the "go back" button and reselect
-        the more fitting option. Once you've run out of emotions, your final selection will be displayed
-        to you!
+        <p>To use this app, begin by selecting one of the main core emotions. Next, pick whether your original
+            selection still fits strongly, or the next relevant
+            emotion fits your current feelings better. If you want to change your mind, press the "go back" button and
+            reselect
+            the more fitting option. Once you've run out of emotions, your final selection will be displayed
+            to you!
         </p>
         <div>
             <!-- this is populated in js :) -->
