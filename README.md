@@ -17,3 +17,7 @@
 
 ## CURRENT PROGRESS/TODO LIST
 - need to have a backup in case there are issues passing data through (fallback -> display selected emotion as the final emotion) - create the final emotion display function
+- expand selection one more time to include sub sub emotions
+- fix css to look cooler + check accessiblity
+- move description/about to separate page
+- add "made by" bar to bottom of the screen w social links

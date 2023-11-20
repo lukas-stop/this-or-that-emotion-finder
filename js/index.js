@@ -196,40 +196,40 @@
 //     }
 // };
 
-const dummyData = {
-    "emotions": [
-        { "Happy": [] },
-        { "Surprised": [] },
-        { "Bad": [] },
-        { "Fearful": [] },
-        { "Angry": [] },
-        { "Disgusted": [] },
-        { "Sad": [] }
-    ]
-}
+// const dummyData = {
+//     "emotions": [
+//         { "Happy": [] },
+//         { "Surprised": [] },
+//         { "Bad": [] },
+//         { "Fearful": [] },
+//         { "Angry": [] },
+//         { "Disgusted": [] },
+//         { "Sad": [] }
+//     ]
+// }
 
-/* ---------------------------------------------------------- */
-/* initializing buttons & variables*/
-/* ---------------------------------------------------------- */
-let unusedEmotions = dummyData.emotions;
-let storedEmotion = '';
-let currentEmotions = [];
-let previousEmotions = [];
-let notTheVibeEmotions = [];
+// /* ---------------------------------------------------------- */
+// /* initializing buttons & variables*/
+// /* ---------------------------------------------------------- */
+// let unusedEmotions = dummyData.emotions;
+// let storedEmotion = '';
+// let currentEmotions = [];
+// let previousEmotions = [];
+// let notTheVibeEmotions = [];
 
-//setting up divs
-let emotionSelectorDiv = document.getElementById("emotionSelector");
-let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
-foundEmotionDisplayDiv.innerHTML = ""; //hides from view
+// //setting up divs
+// let emotionSelectorDiv = document.getElementById("emotionSelector");
+// let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
+// foundEmotionDisplayDiv.innerHTML = ""; //hides from view
 
-//button setup - Happy & surprised are default emotions
-let firstEmotion = document.getElementById('firstEmotionBtn');
-console.log(objArray.map(dummyData.emotions => dummyData.emotions.foo))
-// currentEmotions.push(dummyData.emotions[0])
-// firstEmotion.innerHTML = dummyData.emotions[0].values(unusedEmotions);
+// //button setup - Happy & surprised are default emotions
+// let firstEmotion = document.getElementById('firstEmotionBtn');
+// console.log(objArray.map(dummyData.emotions => dummyData.emotions.foo))
+// // currentEmotions.push(dummyData.emotions[0])
+// // firstEmotion.innerHTML = dummyData.emotions[0].values(unusedEmotions);
 
 
-let secondEmotion = document.getElementById('secondEmotionBtn');
+// let secondEmotion = document.getElementById('secondEmotionBtn');
 // secondEmotion.textContent = dummyData.emotion["Surprised"];
 
 // currentEmotions.push(unusedEmotions[0])

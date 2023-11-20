@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "OpenDyslexic";
+    src: url("./assets/OpenDyslexic/OpenDyslexic-Regular.otf");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +14,15 @@ body {
     height: 100vh;
 }
 
+h1 {
+    font-family: "OpenDyslexic";
+}
+
 .backgroundPattern {
     background-color: #ffffff;
     opacity: 1;
-    background-image:  radial-gradient(#464646 3px, transparent 3px), radial-gradient(#464646 3px, #ffffff 3px);
-    background-size: 80px 80px;
+    background-image:  url("./assets/grid\ background\ texture.png");
+    background-size: 175px 175px;
     background-position: 0 0,40px 40px;
     margin-top: -20px;
     padding: 0;
@@ -96,4 +105,34 @@ body {
     width: 500px;
     padding: 20px;
     margin: auto;
+}
+
+/* Footer styling */
+
+
+footer {    
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 0 0 5px #888;
+    background-color: white;  
+    padding: 7px 20px 5px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    text-align: center;
+    vertical-align: center;
+    justify-content: end;
+}
+
+footer p {
+    padding-top: 5px;
+    font-weight: 600;
+}
+
+footer a {
+    color: #F55B5E;
+}
+
+footer a:hover, footer a:focus-visible {
+    color: #7e1a1c;
 }
