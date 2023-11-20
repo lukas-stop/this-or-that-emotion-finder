@@ -11,11 +11,20 @@
 
 html,
 body {
-    height: 100vh;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    font-family: "OpenDyslexic";
+    font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: #901517;
+    font-weight: 600;
+}
+a:hover, a:focus-visible {
+    color: #5A0D0F;
 }
 
 .backgroundPattern {
@@ -31,18 +40,34 @@ h1 {
     height: 100%;
     position: absolute;
 }
-.mainContent {
+
+.bodyDiv {
     display: block;
     width: 85%;
-    height: 100%;
     background-color: white;
     text-align: center;
     justify-content: center;
     align-items: center;
-    margin: 0px auto 20px auto;
+    margin: 20px auto;
     padding: 30px;
+    border-radius: 25px;    
+    box-shadow: 0 3px 3px #888;
+}
+.headingNav {    
+    height: 150px;
+}
+.mainContent {
+    min-height: 650px;
 }
 
+/* Nav Styling*/
+
+nav li {
+    display: inline;
+    padding: 0 10px;
+}
+
+/* Emotion Selector Styling */ 
 
 .emotionSelector {
     width: 100%;
@@ -117,7 +142,6 @@ footer {
     box-shadow: 0 0 5px #888;
     background-color: white;  
     padding: 7px 20px 5px 0px;
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     text-align: center;
     vertical-align: center;
@@ -129,10 +153,10 @@ footer p {
     font-weight: 600;
 }
 
-footer a {
+/* footer a {
     color: #F55B5E;
 }
 
 footer a:hover, footer a:focus-visible {
     color: #7e1a1c;
-}
+} */
