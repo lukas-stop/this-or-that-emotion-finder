@@ -1,5 +1,5 @@
-# this or that emotions
- an app that helps you narrow down what you're feeling
+# This or That Emotions Finder
+ An app that helps you narrow down what you're feeling!  This is based on the concept of an emotion wheel created by Robert Plutchik.
 
 ***LAST ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
 
