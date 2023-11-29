@@ -1,5 +1,5 @@
-# this or that emotions
- an app that helps you narrow down what you're feeling
+# This or That Emotions Finder
+ An app that helps you narrow down what you're feeling!  This is based on the concept of an emotion wheel created by Robert Plutchik.
 
 ***LAST ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
 
@@ -16,7 +16,7 @@
 
 
 ## CURRENT PROGRESS/TODO LIST
-- need to have a backup in case there are issues passing data through (fallback -> display selected emotion as the final emotion) - create the final emotion display function
+- need to have a backup in case there are issues passing data through (fallback -> display selected emotion as the final emotion)
 - expand selection one more time to include sub sub emotions
 - check accessibility features (buttons?  nav?)
 - double check all current advice with mental health resources (reach out to some professors, doctors, and charities for relevant advice they recommend adding)
