@@ -187,22 +187,23 @@ footer {
     width: 100%;
     box-shadow: 0 0 5px #888;
     background-color: white;  
-    padding: 7px 20px 5px 0px;
-    display: flex;
+    padding: 7px 20px 5px 0px;   
+    display: flex;    
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: 600;     
     text-align: center;
-    vertical-align: center;
-    justify-content: end;
+    vertical-align: center;    
 }
 
-footer p {
-    padding-top: 5px;
-    font-weight: 600;
+.leftFooter {    
+    padding: 5px;
+    color: #555;
+}
+.rightFooter {
+    display: flex;
 }
 
-/* footer a {
-    color: #F55B5E;
+.rightFooter p {
+    padding: 5px;
 }
-
-footer a:hover, footer a:focus-visible {
-    color: #7e1a1c;
-} */
