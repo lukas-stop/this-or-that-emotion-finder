@@ -1,12 +1,278 @@
-const dummyData = {
+//TO DO: import this as a json somehow (so you can convert to other emotion wheels in the future)
+const geoffreyEmotionWheel = {
     "emotions": [
-        { "Happy": ["Playful", "Content", "Interested", "Proud", "Accepted", "Powerful", "Peaceful", "Trusting", "Optimistic"] },
-        { "Surprised": ["Startled", "Confused", "Amazed", "Excited"] },
-        { "Bad": ["Bored", "Busy", "Stressed", "Tired"] },
-        { "Fearful": ["Scared", "Anxious", "Insecure", "Weak", "Rejected", "Threatened"] },
-        { "Angry": ["Let Down", "Humiliated", "Bitter", "Mad", "Aggressive", "Frustrated", "Distant", "Critical"] },
-        { "Disgusted": ["Disapproving", "Disappointed", "Awful", "Repelled"] },
-        { "Sad": ["Lonely", "Vulnerable", "Despair", "Guilty", "Depressed", "Hurt"] }
+        {
+            "Happy": [{
+                "Playful": [
+                    "Aroused",
+                    "Cheeky"
+                ]
+            },
+            {
+                "Content": [
+                    "Free",
+                    "Joyful"
+                ]
+            },
+            {
+                "Interested": [
+                    "Curious",
+                    "Inquisitive"
+                ]
+            },
+            {
+                "Proud": [
+                    "Successful",
+                    "Confident"
+                ]
+            },
+            {
+                "Accepted": [
+                    "Respected",
+                    "Valued"
+                ]
+            },
+            {
+                "Powerful": [
+                    "Courageous",
+                    "Creative"
+                ]
+            },
+            {
+                "Peaceful": [
+                    "Loving",
+                    "Thankful"
+                ]
+            },
+            {
+                "Trusting": [
+                    "Sensitive",
+                    "Intimate"
+                ]
+            },
+            {
+                "Optimistic": [
+                    "Hopeful",
+                    "Inspired"
+                ]
+            }
+            ]
+        }, {
+            "Surprised": [
+                {
+                    "Startled": [
+                        "Shocked",
+                        "Dismayed"
+                    ],
+                },
+                {
+                    "Confused": [
+                        "Disillusioned",
+                        "Perplexed"
+                    ],
+                },
+                {
+                    "Amazed": [
+                        "Astonished",
+                        "Awe"
+                    ],
+                },
+                {
+                    "Excited": [
+                        "Eager",
+                        "Energetic"
+                    ],
+                }
+            ]
+        },
+        {
+            "Bad": [
+                {
+                    "Bored": [
+                        "Indifferent",
+                        "Apathetic"
+                    ],
+                },
+                {
+                    "Busy": [
+                        "Pressured",
+                        "Rushed"
+                    ],
+                },
+                {
+                    "Stressed": [
+                        "Overwhelmed",
+                        "Out of Control"
+                    ],
+                },
+                {
+                    "Tired": [
+                        "Sleepy",
+                        "Unfocused"
+                    ]
+                }
+            ]
+        },
+        {
+            "Fearful": [
+                {
+                    "Scared": [
+                        "Helpless",
+                        "Frightened"
+                    ],
+                },
+                {
+                    "Anxious": [
+                        "Overwhelmed",
+                        "Worried"
+                    ],
+                },
+                {
+                    "Insecure": [
+                        "Inadequate",
+                        "Inferior"
+                    ],
+                },
+                {
+                    "Weak": [
+                        "Worthless",
+                        "Insignificant"
+                    ],
+                },
+                {
+                    "Rejected": [
+                        "Excluded",
+                        "Persecuted"
+                    ],
+                },
+                {
+                    "Threatened": [
+                        "Nervous",
+                        "Exposed"
+                    ]
+                }
+            ]
+        },
+        {
+            "Angry": [
+                {
+                    "Let Down": [
+                        "Betrayed",
+                        "Resentful"
+                    ]
+                },
+                {
+                    "Humiliated": [
+                        "Disrespected",
+                        "Ridiculed"
+                    ]
+                },
+                {
+                    "Bitter": [
+                        "Indignant",
+                        "Violated"
+                    ]
+                },
+                {
+                    "Mad": [
+                        "Furious",
+                        "Jealous"
+                    ]
+                },
+                {
+                    "Aggressive": [
+                        "Provoked",
+                        "Hostile"
+                    ]
+                },
+                {
+                    "Frustrated": [
+                        "Infuriated",
+                        "Annoyed"
+                    ]
+                },
+                {
+                    "Distant": [
+                        "Withdrawn",
+                        "Numb"
+                    ]
+                },
+                {
+                    "Critical": [
+                        "Skeptical",
+                        "Dismissive"
+                    ]
+                }
+            ]
+        },
+        {
+            "Disgusted": [
+                {
+                    "Disapproving": [
+                        "Judgmental",
+                        "Embarrassed"
+                    ]
+                },
+                {
+                    "Disappointed": [
+                        "Appalled",
+                        "Revolted"
+                    ]
+                },
+                {
+                    "Awful": [
+                        "Nauseated",
+                        "Detestable"
+                    ]
+                },
+                {
+                    "Repelled": [
+                        "Horrified",
+                        "Hesitant"
+                    ]
+                }
+            ]
+        },
+        {
+            "Sad": [
+                {
+                    "Lonely": [
+                        "Isolated",
+                        "Abandoned"
+                    ]
+                },
+                {
+                    "Vulnerable": [
+                        "Victimized",
+                        "Fragile"
+                    ]
+                },
+                {
+                    "Despair": [
+                        "Grief",
+                        "Powerless"
+                    ]
+                },
+                {
+                    "Guilty": [
+                        "Ashamed",
+                        "Remorseful"
+                    ]
+                },
+                {
+                    "Depressed": [
+                        "Empty",
+                        "Inferior"
+                    ]
+                },
+                {
+                    "Hurt": [
+                        "Embarrassed",
+                        "Disappointed"
+                    ]
+                }
+            ]
+        }
     ]
 }
 
@@ -16,15 +282,16 @@ const dummyData = {
 let emotionSelectorDiv = document.getElementById("emotionSelector");
 let foundEmotionDisplayDiv = document.getElementById("foundEmotionDisplay");
 let initialEmotions = [];
+let initialSubEmotions = [];
 let subEmotions = [];
 let displayedEmotions = [];
 let currentEmotionIndex = 0;
 
-dummyData.emotions.forEach((obj) => {
+geoffreyEmotionWheel.emotions.forEach((obj) => {
     initialEmotions.push(Object.keys(obj)[0]);
 });
 
-// console.log(dummyData) //debug
+// console.log(geoffreyEmotionWheel) //debug
 // console.log(initialEmotions); //debug
 
 /* ---------------------------------------------------------- */
@@ -53,6 +320,7 @@ resetBtn.addEventListener("click", function () {
 */
 function makeDefaultButtons() {
     //reset everything
+    initialSubEmotions = [];
     subEmotions = [];
     displayedEmotions = [];
     currentEmotionIndex = 0;
@@ -78,7 +346,7 @@ function makeEventListeners() {
     let emotionButtons = document.getElementsByClassName('jsInitialEmotionButton');
     for (var i = 0; i < emotionButtons.length; i++) {
         emotionButtons[i].addEventListener("click", function () {
-            console.log("user selected: " + this.value)
+            //console.log("user selected: " + this.value)
             goBackBtn.disabled = false;
             resetBtn.disabled = false;
 
@@ -104,13 +372,13 @@ function makeEventListeners() {
 function waitStopGoBackPls() {
     //check to see if you're able to go back at all first
     if (currentEmotionIndex > 1) {
-        console.log("currently displaying: " + displayedEmotions[currentEmotionIndex - 1]);
-        console.log("previous emotions: " + displayedEmotions[currentEmotionIndex - 2]);
+        // console.log("currently displaying: " + displayedEmotions[currentEmotionIndex - 1]);
+        // console.log("previous emotions: " + displayedEmotions[currentEmotionIndex - 2]);
 
         //remove the last item stored
-        console.log("have displayed: " + displayedEmotions);
+        //console.log("have displayed: " + displayedEmotions);
         displayedEmotions = displayedEmotions.slice(0, -1)
-        console.log("new displayed: " + displayedEmotions);
+        //console.log("new displayed: " + displayedEmotions);
         //decrease the current index to get the previous emotions
         currentEmotionIndex--;
 
@@ -136,12 +404,17 @@ function waitStopGoBackPls() {
 */
 function goLayerDeeper(selectedEmotion) {
     //look into the object for the key of given emotion & store the relevant sub-emotions
-    subEmotions = dummyData.emotions.find(obj => obj[selectedEmotion]);
-    subEmotions = Object.values(subEmotions)[0]; //FIX(?): there's likely a cleaner way of doing this 
-    //console.log("subemotions: " + Object.values(subEmotions)[0]); //debug 
+    initialSubEmotions = geoffreyEmotionWheel.emotions.find(obj => obj[selectedEmotion]);
+    //TODO: find a clearer fix for this because good LORD what the fuck is this
+    //go through the relevant emotion object, get the keys of the next set of sub emotions to sort through
+    Object.values(initialSubEmotions)[0].forEach(function (item) {
+        Object.keys(item).forEach((j) => {
+            //console.log(j); //debug
+            subEmotions.push(j);
+        });
+    })
     //display the sub-emotions to the user
-
-    console.log("Sub emotions for " + selectedEmotion + " : " + subEmotions)
+    console.log("Sub emotions for " + selectedEmotion + " : " + subEmotions) //debug
     updateButtons(selectedEmotion);
 
     //TODO: fallback in case you can't go a layer deeper
