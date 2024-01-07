@@ -1,22 +1,23 @@
 # This or That Emotions Finder
- An app that helps you narrow down what you're feeling!  This is based on the concept of an emotion wheel created by Robert Plutchik.
+ This is a simple web app that helps you narrow down what you're feeling!  
 
+## How to Use
+First select one of the core emotions intially displayed to you.  These are the strongest emotions a person can feel.  Next, pick whether your original selection still fits strongly, or the next relevant emotion fits your current feelings better. If you want to change your mind, press the "go back" button and reselect the more fitting option. Once you've run out of emotions, your final selection will be displayed to you! 
+
+## Currently Known Accessibilty Issues
 ***LAST ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
 
-## Eventual implementations
-- jump to emotion (for when you know something specific but still want to narrow it down)
-- physical pain checker (where on your body are you feeling these emotions?)
-- information/definition lists for each emotion (connect user to external dictionary so they can find examples, alternative definitions, and synonyms)
-- text to speech availability for nonverbal/AAC communication
-- record keeping ability so user cna regulate emotional wellbeing
-- change which emotion wheel you are currently using
+*Please reach out to me with any accessiblity concerns you may have!*
+- Possible issues with button labels and proper naming.
+- Request for "dark mode" due to brightness from white background.
 
-## Current Accessibility Issues
-- buttons have no names + missing labels
+## TODOs/Eventual Implementations for future version
+- Jump to emotion (for when you know something specific but still want to narrow it down)
+- Add additional layers of emotions for larger emotion wheels.  Add features to change/replace the current emotion wheel being used.
+- Add additional resource and advice pages under guidance of mental health professionals (how to safely navigate the emotion you named).
+- Information/definitions for each emotion being displayed (helps with finding examples and understanding).
 
+## Support
+Hi yes I do this stuff for free currently!!  I'd greatly appreciate any tips you could give to help me keep making silly little projects like this one!  You can find me over on ko-fi at [goosecaboose737](https://ko-fi.com/goosecaboose737)!
 
-## CURRENT PROGRESS/TODO LIST
-- need to have a backup in case there are issues passing data through (fallback -> display selected emotion as the final emotion)
-- expand selection one more time to include sub sub emotions
-- check accessibility features (buttons?  nav?)
-- double check all current advice with mental health resources (reach out to some professors, doctors, and charities for relevant advice they recommend adding)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B812UNM)
