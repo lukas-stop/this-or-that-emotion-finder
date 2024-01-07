@@ -55,6 +55,8 @@ a:hover, a:focus-visible {
 }
 .headingNav {    
     height: 150px;
+    display: flex;
+    flex-direction: column;
 }
 .mainContent {
     height: 650px;
