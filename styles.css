@@ -19,6 +19,10 @@ h1, h2, h3, h4 {
     font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
 }
 
+h1 {
+    font-size: calc(12px + 3vw);
+}
+
 a {
     color: #901517;
     font-weight: 600;
@@ -59,9 +63,8 @@ a:hover, a:focus-visible {
     flex-direction: column;
 }
 .mainContent {
-    height: 650px;
+    min-height: 650px;
     font-size: 16px;
-    overflow-y: scroll;
 }
 .mainContent p {
     margin-bottom: 20px;
@@ -105,11 +108,11 @@ a:hover, a:focus-visible {
 
 .initialEmotionButton {
     border: none;
-    padding: 20px 40px;
+    padding: 20px 30px;
     margin: 10px;
     text-align: center;
     background-color: #eeeeee;
-    width: 350px;
+    min-width: 175px;
     margin: 5px 5px;    
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
@@ -142,14 +145,15 @@ a:hover, a:focus-visible {
     border: none;
     padding: 10px 30px;
     margin: 10px 5px;
+    font-weight: 600;
     font-size: 16px;
     text-align: center;
-    background-color: #eeeeee;
+    background-color: #f5e8e8;
     grid-column: span 2;
 }
 
 .goBackBtn:hover:not([disabled]) {
-    background-color: #cccccc;
+    background-color: #eed1d1;
     cursor: pointer;
 }
 
@@ -181,11 +185,8 @@ a:hover, a:focus-visible {
 
 
 /* Footer styling */
-
-
-footer {    
-    position: fixed;
-    bottom: 0px;
+/* TODO (?) - return footer stickyness so it stays at bottom but doesn't overlap content */
+footer {
     width: 100%;
     box-shadow: 0 0 5px #888;
     background-color: white;  
@@ -193,9 +194,10 @@ footer {
     display: flex;    
     justify-content: space-between;
     padding: 10px;
-    font-weight: 600;     
-    text-align: center;
+    font-size: 12px;
+    font-weight: 600;   
     vertical-align: center;    
+    font-size: 14px;
 }
 
 .leftFooter {    
@@ -208,4 +210,45 @@ footer {
 
 .rightFooter p {
     padding: 5px;
+}
+
+/* Media Queries --------------------------- */
+/* 
+SCREEN DIVISIONS (when width < this)
+xs- 218
+sm- 360
+md- 768
+lg- 1024
+*/
+
+/* XS - watches */
+@media screen and (max-width: 218px){
+    .pageNav {
+        font-size: 12px;
+    }
+    .rightFooter {
+        font-size: 0px;
+    }
+}
+
+
+/* SM - mobile phones (iphone/android) */
+@media screen and (min-width: 219px) and (max-width: 360px){
+    .pageNav {
+        white-space: nowrap;
+        font-size: calc(12px + 0.5vw);
+    }
+    .rightFooter {
+        font-size: 0px;
+    }
+}
+
+/* MD - tablets */
+@media screen and (max-width: 768px) and (max-width: 1023px){
+
+}
+
+/* LG - desktop and larger */
+@media screen and (min-width: 1024px) {
+
 }
