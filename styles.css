@@ -1,3 +1,72 @@
+/* Light/Dark modes */
+
+/* redundant classes used for toggle - TODO: find a cleaner way around this? */
+.lightMode {
+    --bodyBackground: #fff;
+    --btnBackground: #eeeeee;
+    --navBtnBackground: #f5e8e8;
+    --boxShadow: #888;
+    --mainText: #000;
+    --linkTxt: #901517;
+    --footerTxt: #555;
+    --linkTxtHover: #5A0D0F;
+    --btnBackgroundHover: #cccccc;    
+    --navBtnBackgroundHover: #eed1d1;
+}
+
+.darkMode {
+    --bodyBackground: #181717;
+    --btnBackground: #c9c6c6;
+    --navBtnBackground: #f5e8e8;
+    --boxShadow: #000000;
+    --mainText: #fff;
+    --linkTxt: #DFAEA9;
+    --footerTxt: #aaa;
+    --linkTxtHover: #D39892;
+    --btnBackgroundHover: #9C9C9C;    
+    --navBtnBackgroundHover: #eed1d1;
+}
+
+/* Automatically adjust to user settings */
+@media (prefers-color-scheme: dark) {
+    body {    
+        --bodyBackground: #181717;
+        --btnBackground: #c9c6c6;
+        --navBtnBackground: #f5e8e8;
+        --boxShadow: #000000;
+        --mainText: #fff;
+        --linkTxt: #DFAEA9;
+        --footerTxt: #aaa;
+        --linkTxtHover: #D39892;
+        --btnBackgroundHover: #9C9C9C;    
+        --navBtnBackgroundHover: #eed1d1;
+    }
+
+    .backgroundPattern {        
+        filter: invert(95%);
+    }
+    
+}
+@media (prefers-color-scheme: light) {    
+    body {    
+        --bodyBackground: #fff;
+        --btnBackground: #eeeeee;
+        --navBtnBackground: #f5e8e8;
+        --boxShadow: #888;
+        --mainText: #000;
+        --linkTxt: #901517;
+        --footerTxt: #555;
+        --linkTxtHover: #5A0D0F;
+        --btnBackgroundHover: #cccccc;    
+        --navBtnBackgroundHover: #eed1d1;
+    }
+    .backgroundPattern {        
+        filter: invert(0%);
+    }
+  }
+
+/*-----*/
+
 @font-face {
     font-family: "OpenDyslexic";
     src: url("./assets/OpenDyslexic/OpenDyslexic-Regular.otf");
@@ -13,6 +82,13 @@ html,
 body {
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    color: var(--mainText);
+    position: relative;   
+}
+
+/* this keeps the footer from freaking tf out please dont remove thank*/
+main {
+    min-height: 100vh;
 }
 
 h1, h2, h3, h4 {
@@ -24,17 +100,18 @@ h1 {
 }
 
 a {
-    color: #901517;
+    color: var(--linkTxt);
     font-weight: 600;
 }
 a:hover, a:focus-visible {
-    color: #5A0D0F;
+    color: var(--linkTxtHover);
 }
 
 .backgroundPattern {
-    background-color: #ffffff;
-    opacity: 1;
     background-image:  url("./assets/grid\ background\ texture.png");
+    background-color: var(--bodyBackground);
+    opacity: 1;
+    background-repeat: repeat;    
     background-size: 175px 175px;
     background-position: 0 0,40px 40px;
     margin-top: -20px;
@@ -48,22 +125,22 @@ a:hover, a:focus-visible {
 .bodyDiv {
     display: block;
     width: 85%;
-    background-color: white;
+    background-color: var(--bodyBackground);
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    padding: 30px;
+    padding: 30px 20px 20px 20px;
     border-radius: 25px;    
-    box-shadow: 0 3px 3px #888;
+    box-shadow: 0 3px 3px var(--boxShadow);
+    height: auto;
+    
 }
 .headingNav {    
-    height: 150px;
     display: flex;
     flex-direction: column;
 }
 .mainContent {
-    min-height: 650px;
     font-size: 16px;
 }
 .mainContent p {
@@ -71,7 +148,7 @@ a:hover, a:focus-visible {
 }
 
 .resourceASAPHelpTxt {
-    color: #901517;
+    color: var(--linkTxt);
     font-weight: 600;
     font-style: italic;
     margin-bottom: 20px;
@@ -111,7 +188,7 @@ a:hover, a:focus-visible {
     padding: 20px 30px;
     margin: 10px;
     text-align: center;
-    background-color: #eeeeee;
+    background-color: var(--btnBackground);
     min-width: 175px;
     margin: 5px 5px;    
     font-size: 24px;
@@ -121,7 +198,7 @@ a:hover, a:focus-visible {
 
 .initialEmotionButton:hover,
 .initialEmotionButton:focus-visible {
-    background-color: #cccccc;
+    background-color: var(--btnBackgroundHover);
     cursor: pointer;
 }
 
@@ -132,12 +209,12 @@ a:hover, a:focus-visible {
     font-size: 36px;
     text-align: center;
     width: 250px;
-    background-color: #eeeeee;
+    background-color: var(--btnBackground);
 }
 
 .emotionButton:hover,
 .emotionButton:focus-visible {
-    background-color: #cccccc;
+    background-color: var(--btnBackgroundHover);
     cursor: pointer;
 }
 
@@ -148,12 +225,12 @@ a:hover, a:focus-visible {
     font-weight: 600;
     font-size: 16px;
     text-align: center;
-    background-color: #f5e8e8;
+    background-color: var(--navBtnBackground);
     grid-column: span 2;
 }
 
 .goBackBtn:hover:not([disabled]) {
-    background-color: #eed1d1;
+    background-color: var(--navBtnBackgroundHover);
     cursor: pointer;
 }
 
@@ -163,6 +240,18 @@ a:hover, a:focus-visible {
     font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: bold;
+}
+
+.darkModeToggle {
+    margin: 15px 0;
+    font-size: 16px;
+    padding: 10px 15px;  
+    border: none; 
+    border-radius: 50px;
+    background-color: var(--navBtnBackground);}
+.darkModeToggle:hover, .darkModeToggle:focus {
+    background-color: var(--navBtnBackgroundHover);
+    cursor: pointer;
 }
 
 /* Resource Page Styling */
@@ -187,10 +276,12 @@ a:hover, a:focus-visible {
 /* TODO (?) - return footer stickyness so it stays at bottom but doesn't overlap content */
 footer {
     width: 100%;
-    box-shadow: 0 0 5px #888;
-    background-color: white;  
+    box-shadow: 0 0 5px var(--boxShadow);
+    background-color: var(--bodyBackground);  
     padding: 7px 20px 5px 0px;   
-    display: flex;    
+    display: flex;      
+    position: sticky; 
+    bottom: 0;
     justify-content: space-between;
     padding: 10px;
     font-size: 12px;
@@ -201,7 +292,7 @@ footer {
 
 .leftFooter {    
     padding: 5px;
-    color: #555;
+    color: var(--footerTxt);
 }
 .rightFooter {
     display: flex;
@@ -242,12 +333,3 @@ lg- 1024
     }
 }
 
-/* MD - tablets */
-@media screen and (max-width: 768px) and (max-width: 1023px){
-
-}
-
-/* LG - desktop and larger */
-@media screen and (min-width: 1024px) {
-
-}
