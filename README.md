@@ -5,11 +5,12 @@
 First select one of the core emotions intially displayed to you.  These are the strongest emotions a person can feel.  Next, pick whether your original selection still fits strongly, or the next relevant emotion fits your current feelings better. If you want to change your mind, press the "go back" button and reselect the more fitting option. Once you've run out of emotions, your final selection will be displayed to you! 
 
 ## Currently Known Accessibilty Issues
-***LAST ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
+***LAST FORMAL ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
+All commits are checked for general accessibility issues prior to merging (contrast/display scaling/text scaling/etc).
 
 *Please reach out to me with any accessiblity concerns you may have!*
 - Possible issues with button labels and proper naming.
-- Request for "dark mode" due to brightness from white background.
+[please report all issues in their designated discussions section](https://github.com/lukas-stop/this-or-that-emotion-finder/issues)
 
 ## TODOs/Eventual Implementations for future version
 - Jump to emotion (for when you know something specific but still want to narrow it down)
