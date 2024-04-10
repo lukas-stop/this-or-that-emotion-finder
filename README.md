@@ -6,10 +6,12 @@ First select one of the core emotions intially displayed to you.  These are the 
 
 ## Currently Known Accessibilty Issues
 ***LAST FORMAL ACCESSIBILITY TESTING WAS BEEN DONE ON 11/20/23***
-All commits are checked for general accessibility issues prior to merging (contrast/display scaling/text scaling/etc).
+
+*All commits are checked for general accessibility issues prior to merging (contrast/display scaling/text scaling/etc).*
 
 *Please reach out to me with any accessiblity concerns you may have!*
 - Possible issues with button labels and proper naming.
+  
 [please report all issues in their designated discussions section](https://github.com/lukas-stop/this-or-that-emotion-finder/issues)
 
 ## TODOs/Eventual Implementations for future version
