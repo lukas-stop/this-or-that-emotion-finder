@@ -1,32 +1,39 @@
+const siteBody = document.body;
+
 /* 
 Using this method as a base and modifying for this code (ty random stack overflow user <3)
 https://stackoverflow.com/questions/56300132/how-to-override-css-prefers-color-scheme-setting 
 */
 
-function toggleDarkMode() {
-    const body = document.body;
+//load default preferences first
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    console.log("using default value: dark mode");
+    siteBody.classList.remove("lightMode");
+    siteBody.classList.add("darkMode");
+    document.getElementById("backgroundPatternJS").style.filter = "invert(95%)";
+} else {
+    console.log("using default value: light mode");
+    siteBody.classList.remove("darkMode");
+    siteBody.classList.add("lightMode");
+    document.documentElement.classList.add("lightMode");
+}
 
-    if (body.classList.contains("lightMode")) {
+//toggle light/dark mode
+function toggleDarkMode() {
+    if (siteBody.classList.contains("lightMode")) {
         console.log("Switching to dark mode");
-        body.classList.remove("lightMode");
-        body.classList.add("darkMode");
+        siteBody.classList.remove("lightMode");
+        siteBody.classList.add("darkMode");
+        document.getElementById("backgroundPatternJS").style.filter = "invert(95%)";
     }
-    else if (body.classList.contains("darkMode")) {
+    else if (siteBody.classList.contains("darkMode")) {
         console.log("Switching to light mode");
-        body.classList.remove("darkMode");
-        body.classList.add("lightMode");
-    }
-    else {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            console.log("using default value: dark mode");
-            document.documentElement.classList.add("darkMode")
-        } else {
-            console.log("using default value: light mode");
-            document.documentElement.classList.add("lightMode")
-        }
+        siteBody.classList.remove("darkMode");
+        siteBody.classList.add("lightMode");
+        document.getElementById("backgroundPatternJS").style.filter = "invert(0)";
     }
 }
 
 const darkModeBtn = document.getElementById("darkModeToggleJS");
 
-darkModeBtn.addEventListener("click", toggleDarkMode());
+darkModeBtn.addEventListener("click", toggleDarkMode);

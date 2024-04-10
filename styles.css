@@ -42,8 +42,7 @@
         --navBtnBackgroundHover: #eed1d1;
     }
 
-    .backgroundPattern {
-        background-image:  url("./assets/grid\ background\ texture.png");
+    .backgroundPattern {        
         filter: invert(95%);
     }
     
@@ -61,8 +60,8 @@
         --btnBackgroundHover: #cccccc;    
         --navBtnBackgroundHover: #eed1d1;
     }
-    .backgroundPattern {
-        background-image:  url("./assets/grid\ background\ texture.png");
+    .backgroundPattern {        
+        filter: invert(0%);
     }
   }
 
@@ -87,6 +86,11 @@ body {
     position: relative;   
 }
 
+/* this keeps the footer from freaking tf out please dont remove thank*/
+main {
+    min-height: 100vh;
+}
+
 h1, h2, h3, h4 {
     font-family: "OpenDyslexic", Arial, Helvetica, sans-serif;
 }
@@ -104,6 +108,7 @@ a:hover, a:focus-visible {
 }
 
 .backgroundPattern {
+    background-image:  url("./assets/grid\ background\ texture.png");
     background-color: var(--bodyBackground);
     opacity: 1;
     background-repeat: repeat;    
@@ -125,7 +130,7 @@ a:hover, a:focus-visible {
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    padding: 30px 0px 10px 0px;
+    padding: 30px 20px 20px 20px;
     border-radius: 25px;    
     box-shadow: 0 3px 3px var(--boxShadow);
     height: auto;
@@ -136,7 +141,6 @@ a:hover, a:focus-visible {
     flex-direction: column;
 }
 .mainContent {
-    min-height: 650px;
     font-size: 16px;
 }
 .mainContent p {
@@ -241,7 +245,8 @@ a:hover, a:focus-visible {
 .darkModeToggle {
     margin: 15px 0;
     font-size: 16px;
-    padding: 10px 15px;   
+    padding: 10px 15px;  
+    border: none; 
     border-radius: 50px;
     background-color: var(--navBtnBackground);}
 .darkModeToggle:hover, .darkModeToggle:focus {

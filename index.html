@@ -8,51 +8,54 @@
     <script type="module" src='./js/darkModeButton.js'></script>
     <link rel="stylesheet" href="./styles.css">
 </head>
+<main>
 
-<body>
-    <div class="backgroundPattern"></div>
-    <div class="bodyDiv headingNav" role="navigation">
-        <h1>This or That Emotion Finder</h1>
-        <nav class="pageNav">
-            <ul>
-                <li><a href="./internal pages/about.html">About</a></li>
-                <li><a href="./internal pages/resources.html">Resources</a></li>
-            </ul>
-        </nav>
-        <button class="darkModeToggle" id="darkModeToggleJS">Toggle Dark Mode</button>
-    </div>
-    <div class="bodyDiv mainContent" role="main">
-        <p style="width: 75%; margin: 0 auto 10px auto;"><b>
-                This is a tool created to serve as a less overwhelming <a
-                    href="https://positivepsychology.com/emotion-wheel/">
-                    emotion wheel</a>!
-            </b></p>
-        <h2>How to Use:</h2>
-        <p>To use this app, begin by selecting one of the main core emotions. Next, pick whether your original
-            selection still fits strongly, or the next relevant
-            emotion fits your current feelings better. If you want to change your mind, press the "go back" button and
-            reselect
-            the more fitting option. Once you've run out of emotions, your final selection will be displayed
-            to you!
-        </p>
-        <div>
-            <!-- this is populated in js :) -->
-            <div class="emotionSelector" id="emotionSelector"></div>
-            <div class="foundEmotionDisplay" id="foundEmotionDisplay"></div>
+    <body class="lightMode">
+        <div class="backgroundPattern" id="backgroundPatternJS"></div>
+        <div class="bodyDiv headingNav" role="navigation">
+            <h1>This or That Emotion Finder</h1>
+            <nav class="pageNav">
+                <ul>
+                    <li><a href="./internal pages/about.html">About</a></li>
+                    <li><a href="./internal pages/resources.html">Resources</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+        <div class="bodyDiv mainContent" role="main">
+            <p style="width: 75%; margin: 0 auto 10px auto;"><b>
+                    This is a tool created to serve as a less overwhelming <a
+                        href="https://positivepsychology.com/emotion-wheel/">
+                        emotion wheel</a>!
+                </b></p>
+            <button class="darkModeToggle" id="darkModeToggleJS">Toggle Dark Mode</button>
+            <h2>How to Use:</h2>
+            <p>To use this app, begin by selecting one of the main core emotions. Next, pick whether your original
+                selection still fits strongly, or the next relevant
+                emotion fits your current feelings better. If you want to change your mind, press the "go back" button
+                and
+                reselect
+                the more fitting option. Once you've run out of emotions, your final selection will be displayed
+                to you!
+            </p>
+            <div>
+                <!-- this is populated in js :) -->
+                <div class="emotionSelector" id="emotionSelector"></div>
+                <div class="foundEmotionDisplay" id="foundEmotionDisplay"></div>
+            </div>
+        </div>
 
-    <footer>
-        <span class="leftFooter">
-            <p>This or That Emotion Finder version 1.2</p>
-        </span>
-        <span class="rightFooter">
-            <p>Created By <a href="https://lukas-stop.github.io/thegoosezone/">GooseCaboose737</a>
-                &nbsp;</p>
-            <a href='https://ko-fi.com/B0B812UNM' target='_blank'><img src='./assets/kofi_s_tag_white.webp'
-                    height="30px" ; alt='Buy Me a Coffee at ko-fi.com' /></a>
-        </span>
-    </footer>
+</main>
+<footer>
+    <span class="leftFooter">
+        <p>This or That Emotion Finder version 1.2</p>
+    </span>
+    <span class="rightFooter">
+        <p>Created By <a href="https://lukas-stop.github.io/thegoosezone/">GooseCaboose737</a>
+            &nbsp;</p>
+        <a href='https://ko-fi.com/B0B812UNM' target='_blank'><img src='./assets/kofi_s_tag_white.webp' height="30px" ;
+                alt='Buy Me a Coffee at ko-fi.com' /></a>
+    </span>
+</footer>
 </body>
 
 </html>
